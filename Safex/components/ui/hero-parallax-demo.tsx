@@ -20,10 +20,10 @@ export const products = [
       "https://aceternity.com/images/products/thumbnails/new/cursor.png",
   },
   {
-    title: "Rogue",
+    title: "JAi",
     link: "https://userogue.com",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
+      "/Ransomeware.jpg",
   },
   {
     title: "Editorially",

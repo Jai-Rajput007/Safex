@@ -108,9 +108,8 @@ export const Header = () => {
         The Ultimate <br /> Web Assessment Tool
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-        We build beautiful products with the latest technologies and frameworks.
-        We are a team of passionate developers and designers that love to build
-        amazing products.
+        Are you also unaware of Web app Security and
+      Tired of endless security threats, injections, DDoS attacks, and more ?
       </p>
     </div>
   );

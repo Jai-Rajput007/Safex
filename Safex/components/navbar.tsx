@@ -51,8 +51,8 @@ export const Navbar = () => {
           <Tabs
             tabs={navTabs}
             containerClassName="flex items-center gap-2"
-            tabClassName="text-sm font-medium text-white dark:text-gray-300 hover:bg-[#00b7ff] dark:hover:bg-[#7828c8] hover:text-white dark:hover:text-white px-4 py-1.5 rounded-full transition-colors duration-400 ease-in-out min-w-[80 px] text-center"
-            activeTabClassName="bg-[#00b7ff] dark:bg-[#7828c8] text-white dark:text-white rounded-full transition-colors duration-400 ease-in-out min-w-[80 px] text-center"
+            tabClassName="text-sm font-medium text-white dark:text-gray-300 hover:bg-[#00b7ff] dark:hover:bg-[#7828c8] hover:text-white dark:hover:text-white px-4 py-1.5 rounded-full transition-colors duration-400 ease-in-out min-w-[80px] text-center bg-transparent"
+            activeTabClassName="bg-[#00b7ff] dark:bg-[#7828c8] text-white dark:text-white rounded-full transition-colors duration-400 ease-in-out min-w-[80px] text-center px-4 py-1.5"
             contentClassName="hidden"
             onValueChange={handleTabChange}
             currentRoute={currentRoute}
