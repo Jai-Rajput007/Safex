@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-const Button = () => {
+export const Button = () => {
   return (
     <div>
       <button className="group flex items-center font-medium text-lg py-3 px-5 text-white bg-gradient-to-r from-blue-700 via-purple-800 to-pink-700 border-none rounded-2xl cursor-pointer">
@@ -26,4 +26,5 @@ const Button = () => {
   );
 };
 
+// Also export as default for backwards compatibility
 export default Button;

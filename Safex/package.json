@@ -31,6 +31,7 @@
   "class-variance-authority": "^0.7.1",
   "clsx": "^2.1.1",
   "cobe": "^0.6.3",
+  "critters": "^0.0.23",
   "framer-motion": "^11.18.2",
   "intl-messageformat": "^10.7.15",
   "lucide-react": "^0.477.0",

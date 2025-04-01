@@ -14,6 +14,14 @@ const nextConfig = {
         pathname: "/images/products/thumbnails/new/**",
       },
     ],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  experimental: {
+    optimizePackageImports: ['framer-motion', '@tsparticles/react', 'lucide-react'],
   },
 };
 

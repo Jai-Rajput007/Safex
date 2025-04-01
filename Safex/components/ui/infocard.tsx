@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useMemo, memo } from "react";
 import { cn } from "@/lib/utils";
 import {
   Terminal,
@@ -10,64 +13,68 @@ import {
   Heart
 } from "lucide-react";
 
+// Precompute the features array only once
+const featuresList = [
+  {
+    title: "Built for developers",
+    description:
+      "Built for engineers, developers, dreamers, thinkers and doers.",
+    icon: <Terminal className="w-6 h-6" />,
+  },
+  {
+    title: "Ease of use",
+    description:
+      "It's as easy as using an Apple, and as expensive as buying one.",
+    icon: <Move className="w-6 h-6" />,
+  },
+  {
+    title: "Pricing like no other",
+    description:
+      "Our prices are best in the market. No cap, no lock, no credit card required.",
+    icon: <DollarSign className="w-6 h-6" />,
+  },
+  {
+    title: "100% Uptime guarantee",
+    description: "We just cannot be taken down by anyone.",
+    icon: <Cloud className="w-6 h-6" />,
+  },
+  {
+    title: "Multi-tenant Architecture",
+    description: "You can simply share passwords instead of buying new seats",
+    icon: <Route className="w-6 h-6" />,
+  },
+  {
+    title: "24/7 Customer Support",
+    description:
+      "We are available a 100% of the time. Atleast our AI Agents are.",
+    icon: <HelpCircle className="w-6 h-6" />,
+  },
+  {
+    title: "Money back guarantee",
+    description:
+      "If you donot like EveryAI, we will convince you to like us.",
+    icon: <Settings className="w-6 h-6" />,
+  },
+  {
+    title: "And everything else",
+    description: "I just ran out of copy ideas. Accept my sincere apologies",
+    icon: <Heart className="w-6 h-6" />,
+  },
+];
+
 export function FeaturesSectionDemo() {
-  const features = [
-    {
-      title: "Built for developers",
-      description:
-        "Built for engineers, developers, dreamers, thinkers and doers.",
-      icon: <Terminal className="w-6 h-6" />,
-    },
-    {
-      title: "Ease of use",
-      description:
-        "It's as easy as using an Apple, and as expensive as buying one.",
-      icon: <Move className="w-6 h-6" />,
-    },
-    {
-      title: "Pricing like no other",
-      description:
-        "Our prices are best in the market. No cap, no lock, no credit card required.",
-      icon: <DollarSign className="w-6 h-6" />,
-    },
-    {
-      title: "100% Uptime guarantee",
-      description: "We just cannot be taken down by anyone.",
-      icon: <Cloud className="w-6 h-6" />,
-    },
-    {
-      title: "Multi-tenant Architecture",
-      description: "You can simply share passwords instead of buying new seats",
-      icon: <Route className="w-6 h-6" />,
-    },
-    {
-      title: "24/7 Customer Support",
-      description:
-        "We are available a 100% of the time. Atleast our AI Agents are.",
-      icon: <HelpCircle className="w-6 h-6" />,
-    },
-    {
-      title: "Money back guarantee",
-      description:
-        "If you donot like EveryAI, we will convince you to like us.",
-      icon: <Settings className="w-6 h-6" />,
-    },
-    {
-      title: "And everything else",
-      description: "I just ran out of copy ideas. Accept my sincere apologies",
-      icon: <Heart className="w-6 h-6" />,
-    },
-  ];
+  // No need to recreate the features array on each render
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto">
-      {features.map((feature, index) => (
+      {featuresList.map((feature, index) => (
         <Feature key={feature.title} {...feature} index={index} />
       ))}
     </div>
   );
 }
 
-const Feature = ({
+// Memoize the Feature component
+const Feature = memo(({
   title,
   description,
   icon,
@@ -78,18 +85,21 @@ const Feature = ({
   icon: React.ReactNode;
   index: number;
 }) => {
+  // Use useMemo for the complex conditional class names
+  const featureClasses = useMemo(() => 
+    cn(
+      "flex flex-col lg:border-r py-10 relative group/feature dark:border-neutral-800",
+      (index === 0 || index === 4) && "lg:border-l dark:border-neutral-800",
+      index < 4 && "lg:border-b dark:border-neutral-800"
+    ),
+    [index]
+  );
+
   return (
-    <div
-      className={cn(
-        "flex flex-col lg:border-r py-10 relative group/feature dark:border-neutral-800",
-        (index === 0 || index === 4) && "lg:border-l dark:border-neutral-800",
-        index < 4 && "lg:border-b dark:border-neutral-800"
-      )}
-    >
-      {index < 4 && (
+    <div className={featureClasses}>
+      {index < 4 ? (
         <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
-      )}
-      {index >= 4 && (
+      ) : (
         <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
       )}
       <div className="mb-4 relative z-10 px-10 text-neutral-600 dark:text-neutral-400">
@@ -106,6 +116,8 @@ const Feature = ({
       </p>
     </div>
   );
-};
+});
+
+Feature.displayName = "Feature";
 
 export default FeaturesSectionDemo;

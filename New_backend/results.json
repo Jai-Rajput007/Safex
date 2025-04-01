@@ -1,0 +1,111 @@
+{
+  "url": "http://testphp.vulnweb.com/",
+  "scan_time": "2025-04-01 16:21:13",
+  "summary": {
+    "Basic": 8,
+    "XSS": 1,
+    "SQL_Injection": 1,
+    "HTTP_Methods": 0,
+    "File_Upload": 0
+  },
+  "vulnerabilities": {
+    "Basic": [
+      {
+        "id": "3dd71a24-33b4-4e49-98fb-996ab8371e95",
+        "name": "Missing HSTS Header",
+        "description": "HTTP Strict Transport Security header is missing",
+        "severity": "medium",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Strict-Transport-Security not found in response",
+        "remediation": "Add the Strict-Transport-Security header"
+      },
+      {
+        "id": "1f2534d0-44bf-49a6-b42b-f56afbfc885c",
+        "name": "Missing Content Security Policy",
+        "description": "Content Security Policy header is missing",
+        "severity": "medium",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Content-Security-Policy not found in response",
+        "remediation": "Implement a Content Security Policy"
+      },
+      {
+        "id": "d260e605-ce1f-4273-9cb2-e0c35d464ae5",
+        "name": "Missing X-Frame-Options Header",
+        "description": "X-Frame-Options header is missing, which can lead to clickjacking attacks",
+        "severity": "medium",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header X-Frame-Options not found in response",
+        "remediation": "Add the X-Frame-Options header with DENY or SAMEORIGIN value"
+      },
+      {
+        "id": "947b6436-0418-45d3-b94d-3ca92b99fdf3",
+        "name": "Missing X-Content-Type-Options Header",
+        "description": "X-Content-Type-Options header is missing, which can lead to MIME sniffing attacks",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header X-Content-Type-Options not found in response",
+        "remediation": "Add the X-Content-Type-Options header with nosniff value"
+      },
+      {
+        "id": "8d43bd38-b462-45df-bb31-4cbba9cabbbc",
+        "name": "Missing X-XSS-Protection Header",
+        "description": "X-XSS-Protection header is missing, which can help prevent XSS attacks in older browsers",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header X-XSS-Protection not found in response",
+        "remediation": "Add the X-XSS-Protection header with 1; mode=block value"
+      },
+      {
+        "id": "cd2405a8-58f4-48af-be11-d7f9306f9e7c",
+        "name": "Server Information Disclosure",
+        "description": "Server header reveals information about the server software: nginx/1.19.0",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Configure the server to hide version information"
+      },
+      {
+        "id": "1a1cb6c3-ac48-4936-9cb1-663511c768a6",
+        "name": "Insecure HTTP",
+        "description": "The website is using HTTP instead of HTTPS, which means data is transmitted in plaintext",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "URL uses HTTP protocol",
+        "remediation": "Configure the server to use HTTPS and redirect HTTP to HTTPS"
+      },
+      {
+        "id": "243e9d39-a344-4916-babf-7d98d769b2b6",
+        "name": "Open Port: 80 (HTTP)",
+        "description": "Port 80 (HTTP) is open on testphp.vulnweb.com",
+        "severity": "low",
+        "location": "testphp.vulnweb.com:80",
+        "evidence": "Port 80 is open",
+        "remediation": "Close port 80 if not needed or restrict access"
+      }
+    ],
+    "XSS": [
+      {
+        "id": "001e5fc4-a32d-4e72-9fad-b996902b2fa0",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<script>alert('PO3b0XwC')</script>' was reflected in the response",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP)."
+      }
+    ],
+    "SQL_Injection": [
+      {
+        "id": "34943910-1b30-4be4-9836-8c373455cc90",
+        "name": "SQL Injection",
+        "description": "SQL injection vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '\" OR \"1\"=\"1' --' triggered error pattern: SQL syntax.*?MySQL",
+        "remediation": "Use parameterized queries or prepared statements. Validate and sanitize all user inputs."
+      }
+    ],
+    "HTTP_Methods": [],
+    "File_Upload": []
+  }
+}

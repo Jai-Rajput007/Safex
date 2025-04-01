@@ -1,11 +1,17 @@
 import {heroui} from "@heroui/theme"
+import { nextui } from "@heroui/react"
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+    "./node_modules/@heroui/system/dist/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@heroui/react/dist/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
   	extend: {
@@ -62,11 +68,23 @@ module.exports = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
+  			},
+  			brand: "rgb(var(--brand) / <alpha-value>)",
+  		},
+  		animation: {
+  			"bounce-custom": "bounce_613 0.4s linear",
+  		},
+  		keyframes: {
+  			bounce_613: {
+  				"40%": { transform: "scale(1.4)" },
+  				"60%": { transform: "scale(0.8)" },
+  				"80%": { transform: "scale(1.2)" },
+  				"100%": { transform: "scale(1)" },
   			}
-  		}
+  		},
   	}
   },
   darkMode: ["class"],
-  plugins: [heroui()],
+  plugins: [heroui(), nextui()],
 }
 

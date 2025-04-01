@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { Link } from "@heroui/link";
 import clsx from "clsx";
+import Script from "next/script";
 
 import { Providers } from "./providers";
 
@@ -33,18 +34,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
-      <head />
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet" 
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
+        />
+        <Script 
+          id="font-loader" 
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Optimize font loading
+              const fontLink = document.querySelector('link[href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"]');
+              if (fontLink) {
+                fontLink.setAttribute('media', 'all');
+              }
+            `
+          }}
+        />
+      </head>
       <body
         className={clsx(
-          "min-h-screen bg-background font-sans antialiased w-full",
+          "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col min-h-screen w-full">
+          <div className="relative flex flex-col h-screen">
             <Navbar />
-            <main className="w-full flex-grow">
+            <main className="container mx-auto max-w-7xl pt-16 flex-grow">
               {children}
             </main>
           </div>

